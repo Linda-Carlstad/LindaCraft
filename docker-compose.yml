@@ -7,15 +7,15 @@ services:
       TZ: Europe/Stockholm
       MEMORYSIZE: ${TOTAL_RAM}
       PAPERMC_FLAGS: ${PAPER_FLAGS}
-      PUID: "1000"
-      PGID: "1000"
+      PUID: "1002"
+      PGID: "1002"
       SKIP_PERM_CHECK: ${PERM_CHECK}
     networks:
       local_net:
         ipv4_address: 192.168.100.2
     ports:
-      - "8001:8001" # Minecraft port
-      - "8001:8001/udp" # For voice chat support
+      - "25565:25565" # Minecraft port
+      - "25565:25565/udp" # For voice chat support
       - "127.0.0.1:8123:8123" # Dynmap
     volumes:
       - ./server:/data
@@ -26,10 +26,10 @@ services:
   nginx:
     image: nginx:latest
     container_name: nginx
-    restart: no
+    restart: unless-stopped
     environment:
-      PUID: "1000"
-      PGID: "1000"
+      PUID: "1002"
+      PGID: "1002"
     networks:
       local_net:
         ipv4_address: 192.168.100.3
@@ -46,8 +46,8 @@ services:
     container_name: certbot
     command: certonly -d ${DOMAIN} --non-interactive --agree-tos -m ${EMAIL} --standalone
     environment:
-      PUID: "1000"
-      PGID: "1000"
+      PUID: "1002"
+      PGID: "1002"
     networks:
       local_net:
         ipv4_address: 192.168.100.4
