@@ -30,13 +30,11 @@ header-footer:
       - an example of server with custom header
 tablist-name-formatting:
   enabled: true
-  anti-override: true
   disable-condition: '%world%=disabledworld'
 scoreboard-teams:
   enabled: true
   enable-collision: true
   invisible-nametags: false
-  anti-override: true
   sorting-types:
   - PLACEHOLDER_HIGH_TO_LOW:%luckperms_highest_group_weight%
   - PLACEHOLDER_A_TO_Z:%player%
@@ -48,6 +46,8 @@ playerlist-objective:
   value: '%ping%'
   fancy-value: '&7Ping: %ping%'
   disable-condition: '%world%=disabledworld'
+  title: TAB
+  render-type: INTEGER
 belowname-objective:
   enabled: true
   value: '%health%'
@@ -119,22 +119,22 @@ layout:
     default:
       fixed-slots:
       - '2|&3Website&f:'
-      - '3|&blindacarlstad.se'
+      - 3|&blindacarlstad.se
       - '5|&3Name&f:'
-      - '6|&b%player%'
+      - 6|&b%player%
       - '8|&3Rank&f:'
       - '9|Rank: %group%'
       - '11|&3Time&f:'
-      - '12|&b%time%'
+      - 12|&b%time%
       - '14|&3Staff Online: &r%staffonline%'
       - '15|&3Players Online: &r%online%'
       - '17|&3Server TPS: &r%tps%'
       - '19|&3Player Ping: &r%ping%'
-      - '21|&3Staff'
+      - 21|&3Staff
       - '22|&8&m                       '
-      - '41|&3Players'
+      - 41|&3Players
       - '42|&8&m                       '
-      - '61|&3Top 5 Deaths'
+      - 61|&3Top 5 Deaths
       - '62|&8&m                       '
       - '63|%playerstats_ top: 1, deaths%'
       - '64|%playerstats_ top: 2, deaths%'
@@ -142,7 +142,7 @@ layout:
       - '66|%playerstats_ top: 4, deaths%'
       - '67|%playerstats_ top: 5, deaths%'
       - '68|&8&m                       '
-      - '69|&3Top 5 Kills'
+      - 69|&3Top 5 Kills
       - '70|&8&m                       '
       - '71|%playerstats_ top: 1, player_kills%'
       - '72|%playerstats_ top: 2, player_kills%'
@@ -174,22 +174,13 @@ placeholder-output-replacements:
   '%essentials_vanished%':
     'yes': '&7| Vanished'
     'no': ''
-placeholderapi-refresh-intervals:
-  default-refresh-interval: 500
-  '%server_uptime%': 1000
-  '%server_tps_1_colored%': 1000
-  '%server_unique_joins%': 5000
-  '%player_health%': 200
-  '%player_ping%': 1000
-  '%vault_prefix%': 1000
-  '%rel_factionsuuid_relation_color%': 1000
 assign-groups-by-permissions: false
 primary-group-finding-list:
-  - Owner
-  - Admin
-  - Mod
-  - Helper
-  - default
+- Owner
+- Admin
+- Mod
+- Helper
+- default
 permission-refresh-interval: 1000
 debug: false
 mysql:
@@ -232,4 +223,22 @@ global-playerlist:
     - server2
 use-bukkit-permissions-manager: false
 use-online-uuid-in-tablist: true
-enable-redisbungee-support: true
+proxy-support:
+  enabled: true
+  type: PLUGIN
+  plugin:
+    name: RedisBungee
+  redis:
+    url: redis://:password@localhost:6379/0
+  rabbitmq:
+    exchange: plugin
+    url: amqp://guest:guest@localhost:5672/%2F
+placeholder-refresh-intervals:
+  default-refresh-interval: 500
+  '%server_uptime%': 1000
+  '%server_tps_1_colored%': 1000
+  '%server_unique_joins%': 5000
+  '%player_health%': 200
+  '%player_ping%': 1000
+  '%vault_prefix%': 1000
+  '%rel_factionsuuid_relation_color%': 1000

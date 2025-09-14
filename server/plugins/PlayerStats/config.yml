@@ -1,7 +1,7 @@
 # ------------------------------------------------------------------------------------------------------ #
 #                                     PlayerStats Configuration                                          #
 # ------------------------------------------------------------------------------------------------------ #
-config-version: 7
+config-version: 8
 
 
 #                                # ------------------------------- #                                     #
@@ -72,12 +72,12 @@ use-dots: true
 top-list-max-size: 10
 
 # The title above the top list (this will become 'Top 10 animals bred', for example)
-top-list-title: 'Top'
+top-list-title: Top
 
 # The title in front of a total-on-this-server statistic
 # This will become 'Total on My Awesome Server: [n] animals bred', for example
-total-server-stat-title: 'Total on'
-your-server-name: 'LindaCraft'
+total-server-stat-title: Total on
+your-server-name: LindaCraft
 
 
 #                                # ------------------------------- #                                     #
@@ -135,33 +135,33 @@ hover-text-amount-lighter: 40
 shared-stats:
   shared-by: gray
   shared-by-style: italic
-
-  player-name: "#EE8A19"
+  
+  player-name: '#EE8A19'
   player-name-style: italic
 
 
 top-list:
   title: '#FFD52B'
   title-style: none
-
+  
   title-number: gold
   title-number-style: none
-
+  
   stat-names: '#FFD52B'
   stat-names-style: none
-
+  
   sub-stat-names: yellow
   sub-stat-names-style: none
-
+  
   rank-numbers: gold
   rank-numbers-style: none
-
+  
   player-names: green
   player-names-style: none
-
+  
   stat-numbers: '#55AAFF'
   stat-numbers-style: none
-
+  
   dots: dark_gray
   dots-style: none
 
@@ -169,13 +169,13 @@ top-list:
 individual-statistics:
   player-names: gold
   player-names-style: none
-
+  
   stat-names: '#FFD52B'
   stat-names-style: none
-
+  
   sub-stat-names: yellow
   sub-stat-names-style: none
-
+  
   stat-numbers: '#ADE7FF'
   stat-numbers-style: none
 
@@ -183,15 +183,15 @@ individual-statistics:
 total-server:
   title: '#55AAFF'
   title-style: none
-
+  
   server-name: '#55AAFF'
   server-name-style: none
-
+  
   stat-names: '#FFD52B'
   stat-names-style: none
-
+  
   sub-stat-names: yellow
   sub-stat-names-style: none
-
+  
   stat-numbers: '#ADE7FF'
   stat-numbers-style: none

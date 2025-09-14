@@ -13,7 +13,7 @@ pages:
     height: 0.3
   - content: '&a/help &6[command]&f to get usable commands'
     height: 0.3
-  - content: '&a/audio &rand follow the instructions to use &nproxy chat!'
+  - content: Press the &aV &rkey to change settings related to &aproxy chat&r!
     height: 0.3
   - content: '&a/tpa &6[player]&f to teleport to the given player'
     height: 0.3

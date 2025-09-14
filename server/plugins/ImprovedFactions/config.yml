@@ -2,18 +2,18 @@
 # -------- { General Settings } --------
 #
 update-checker: true
-config-version: 14
+config-version: 19
 
-# Configure a mysql connection. If no connection was established, the plugin uses sqlite.
+# Configure an mysql connection. If no connection was established, the plugin uses sqlite.
 # This allows to use this plugin without a mysql server
-database: "sqlite" # ImprovedFactions supports H2, SQLite and MySQL. H2 and SQLite are local databases
-verbose-database-logging: false # If set to true, the plugin will log all database queries. This is useful for debugging, but can cause performance issues
+database: sqlite # ImprovedFactions supports H2, SQLite, and MySQL. H2 and SQLite are local databases
+verbose-database-logging: false # If set to true, the plugin will log all database queries. This is useful for debugging but can cause performance issues
 mysql:
-  host: "localhost"
+  host: localhost
   port: 3306
-  database: "improvedfactions"
-  user: "root"
-  password: "1234"
+  database: improvedfactions
+  user: root
+  password: '1234'
 
 modules:
   # This module is responsible for managing power, and it's associated side effects, like raids and over-claims.
@@ -22,25 +22,29 @@ modules:
   dynmap: true
   # This module will add the /f wilderness and /wilderness command, allowing players to teleport to the wilderness (A place where no factions has yet claimed)
   wilderness: false
-  # This module will add various home related commands for setting and teleporting to a faction's home
+  # This module will add various home-related commands for setting and teleporting to a faction's home
   home: true
   # This module will allow factions to enter their own chat, where only faction members can read the messages
-  chat: true # Will not work for socialspy
-  # This module will replace some commands with gui alternatives, for example the /f invites or /f info command
+  chat: true
+  # This module will replace some commands with gui alternatives, for example, the /f invites or /f info command
   gui: true
+  # Claim particles will show the border of claims
+  claim-particles: true
+  # This module will allow factions to create alliances with other factions and form wars
+  relations: true
 
 #
 # -------- { Base Module Settings } --------
 #
 factions:
   max-rank-name-length: 50
-  rank-name-regex: "[a-zA-Z]*" # The regex a rank name has to match. Spaces are supported, but strongly discouraged
+  rank-name-regex: '[a-zA-Z]*' # The regex a rank name has to match. Spaces are supported but strongly discouraged
   max-spaces-in-name: 5
   # Unit is minutes
   invites-expire-in: 30
-  name-regex: "[a-zA-Z]*" # The regex a faction name has to match. Spaces are supported, but strongly discouraged
-
-  max-claim-radius: 5 # The maximum square radius a faction can claim at once. Keep it low for performance reasons
+  name-regex: '[a-zA-Z]*' # The regex a faction name has to match. Spaces are supported but strongly discouraged
+  
+  max-claim-radius: 1 # The maximum square radius a faction can claim at once. Keep it low for performance reasons
   map-width: 20 # The size of the map in chunks that will be displayed when using the /f map command
   map-height: 10 # The size of the map in chunks that will be displayed when using the /f map command
   # Default ranks every faction will receive once created. When modifying it,
@@ -51,42 +55,42 @@ factions:
       priority: 1 # The priority this rank has
       # Defines the faction permissions this rank has by default. Can always be changed by factions
       default-permissions:
-        - send-invites
-        - view-power
-        - teleport-home
+      - send-invites
+      - view-power
+      - teleport-home
     Elder:
       priority: 10
       default-permissions:
-        - send-invites
-        - manage-claims
-        - view-power
-        - teleport-home
+      - send-invites
+      - manage-claims
+      - view-power
+      - teleport-home
     Admin:
       priority: 100
       default-permissions:
-        - send-invites
-        - manage-claims
-        - manage-permissions
-        - kick-player
-        - manage-bans
-        - view-power
-        - teleport-home
-        - set-home
+      - send-invites
+      - manage-claims
+      - manage-permissions
+      - kick-player
+      - manage-bans
+      - view-power
+      - teleport-home
+      - set-home
     Owner:
       priority: 1000
       default-permissions:
-        - send-invites
-        - manage-claims
-        - set-icon
-        - rename-faction
-        - manage-permissions
-        - kick-player
-        - manage-bans
-        - transfer-ownership
-        - view-power
-        - teleport-home
-        - set-home
-
+      - send-invites
+      - manage-claims
+      - set-icon
+      - rename-faction
+      - manage-permissions
+      - kick-player
+      - manage-bans
+      - transfer-ownership
+      - view-power
+      - teleport-home
+      - set-home
+  
   #
   # -------- { Power Raid Module Settings } --------
   # These settings only apply when you enabled this module.
@@ -98,7 +102,7 @@ factions:
     accumulation-rate: # Configure how often faction powers will be accumulated. Increasing it to be too frequent might cause database bottlenecks
       unit: HOURS # The time unit this value will be interpreted as. Some more common possibilities are: SECONDS, MINUTES, HOURS and DAYS
       value: 1
-
+    
     # Configure how long a player counts as active.
     inactive:
       unit: DAYS # The time unit this value will be interpreted as. Some more common possibilities are: SECONDS, MINUTES, HOURS and DAYS
@@ -120,9 +124,9 @@ factions:
     allow-overclaiming: true # If set to true, factions can overclaim other factions by starting a siege
     siege: # Sieges are needed for over-claiming to be possible
       breach-progress: 1.0 # This is the progress an intruder adds to the overall siege's progress when joining it
-      resistance-progress: .5 # This is the amount of progress a defender is blocking by joining the defense of a siege
+      resistance-progress: 0.5 # This is the amount of progress a defender is blocking by joining the defense of a siege
       recovery-speed: 1.0 # Define how fast the claim recovers its integrity
-
+  
   #
   # -------- { Dynmap Module Settings } --------
   # These settings only apply when you enabled this module.
@@ -137,32 +141,35 @@ factions:
     # Placeholders that work without papi: %faction_name%
     info-windows:
       # This is the default window a player will see when clicking on a faction's area on the dynmap. It allows html, css as well as js. This can be overridden by the values below
-      __default__: "<p style=\"font-weight:700;text-align:center\">%faction_name%</p><hr><div style=\"display:flex;justify-content:space-between;align-items:center;margin-bottom:10px\"><span>Owner: </span><span style=\"font-weight:700\">%faction_owner%</span></div><div style=\"display:flex;justify-content:space-between;align-items:center;margin-bottom:10px\"><span>Max Power: </span><span style=\"font-weight:700\">%faction_maxPower%</span></div>"
-      safezone: "<div class=\"infowindow\"><span style=\"font-weight:bold\">Safezone</span></div>"
-      warzone: "<div class=\"infowindow\"><span style=\"font-weight:bold\">Warzone</span></div>"
-      unmanaged: "<div class=\"infowindow\"><span style=\"font-weight:bold\">Unmanaged</span></div>"
+      __default__: '<p style="font-weight:700;text-align:center">%faction_name%</p><hr><div
+        style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px"><span>Owner:
+        </span><span style="font-weight:700">%faction_owner%</span></div><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px"><span>Max
+        Power: </span><span style="font-weight:700">%faction_maxPower%</span></div>'
+      safezone: <div class="infowindow"><span style="font-weight:bold">Safezone</span></div>
+      warzone: <div class="infowindow"><span style="font-weight:bold">Warzone</span></div>
+      unmanaged: <div class="infowindow"><span style="font-weight:bold">Unmanaged</span></div>
     claim-colors:
       __default__:
-        color: "FF0000" # The color of the claim on the dynmap. This is the color in hex. This can be overridden by the values below
+        color: FF0000 # The color of the claim on the dynmap. This is the color in hex. This can be overridden by the values below
         opacity: 0.3 # The opacity of the claim on the dynmap. 0 - 1 This can be overridden by the values below
       safezone:
-        color: "00FFFF"
+        color: 00FFFF
         opacity: 0.3
       warzone:
-        color: "8B0000"
+        color: 8B0000
         opacity: 0.3
       unmanaged:
-        color: "FFFF00"
+        color: FFFF00
         opacity: 0.3
-    show-zones: true # This will show the zones on the dynmap. If set to false, the zones will be hidden, useful for servers where zones may already get rendered by a different plugin
-    show-homes: true # This will show the homes of factions on the dynmap if the homes module is enabled. If set to false, the homes will be hidden
+    show-zones: false # This will show the zones on the dynmap. If set to false, the zones will be hidden, useful for servers where zones may already get rendered by a different plugin
+    show-homes: false # This will show the homes of factions on the dynmap if the homes module is enabled. If set to false, the homes will be hidden
     color-faction-claims: true # This will color claims on dynmap based on the faction's color. Named colors will have more priority
     marker-set:
-      id: "factions" # The id of the marker set on the dynmap. When changed, the old marker has to be removed manually
-      display-name: "Factions" # The display name of the marker set
+      id: factions # The id of the marker set on the dynmap. When changed, the old marker has to be removed manually
+      display-name: Factions # The display name of the marker set
       layer-priority: 10 # The priority of the layer. Higher values will be displayed on top of lower values
       hidden-by-default: false # If set to true, the layer will be hidden by default
-
+  
   #
   # -------- { Wilderness Module Settings } --------
   # These settings only apply when you enabled this module.
@@ -182,7 +189,7 @@ factions:
     stand-still-unit: SECONDS # The time unit this value will be interpreted as. Some more common possibilities are: SECONDS, MINUTES, HOURS and DAYS
     stand-still-value: 5 # The time the player has to stand still before being teleported
     blacklisted-biomes:
-      - OCEAN
+    - OCEAN
     usage-limit: -1 # The amount of times a player can use this command to teleport to wilderness. -1 means no limit
     claim-distance-check: 5 # The distance of the player to the nearest claimed chunk. This is the distance in chunks
     retry-limit: 10 # The amount of times the plugin will try to find a suitable location before giving up
@@ -199,13 +206,41 @@ factions:
     #     max-z: 1000
     #     world: "world"
 
-    # The proximity the player will be teleported to when no regions are defined.
+        # The proximity the player will be teleported to when no regions are defined.
     # If set to -1 and regions are not defined, the whole area within the world border will be considered
     teleport-proximity: 100
+  
+  #
+  # -------- { Claim Particle Module Settings } --------
+  # These settings only apply when you enabled this module.
+  #
+  # This section represents the constants mentioned in the wilderness module documentation.
+  # If you have no clue what you're doing here, a good place to start looking would be the claim particle module documentation
+  claim-particles:
+    particle-count: 2 # The number of particles that will be spawned
+    particle-speed: 0 # The speed the particles will have
+    particle-spread: 0.1 # The spread of the particles
+    block-render-distance: 30 # The distance the particles will be rendered in blocks
+    chunk-render-distance: 1 # The distance of chunks that will be checked
+    min-particle-size: 0.0 # The minimum y value the particles will be rendered at
+    max-particle-size: 2.0 # The maximum y value the particles will be rendered at
+    particle-size-bias: 0.5 # The shift in size a particle has
+    particle-spawn-interval: 15 # The interval in ticks the particles will be spawned
+  
+  #
+  # -------- { Chat Module Settings } --------
+  #
+  # This section represents the constants mentioned in the chat module documentation.
+  # If you have no clue what you're doing here, a good place to start looking would be the chat module documentation
+  chat:
+    log-faction-chats-to-console: true # If set to true, all faction chats will be logged to the console
+  
+  hide-wilderness-title: false # If set to true, the title will be hidden when a player leaves a claimed chunk into the wilderness
+  
   # Whenever you change values in this section, you'll have issues with your database
   # Choose values that go for you and never touch them again
   unsafe:
-    guest-rank-name: "Guest"
+    guest-rank-name: Guest
     max-name-length: 36
     # Define how long the item in base64 format can get. Bigger numbers allow more complex items, while costing more space
     max-icon-length: 5000
@@ -222,8 +257,8 @@ zones:
     # This is the language key of the title getting displayed when a claimed chunk is being left into an unclaimed one
     no-faction-title: base.zone.wilderness
     always-protect: false # If set to true, all chunks, even unclaimed ones, will be affected from the protection rules defined below
-    map-color: "AAAAAA" # The color the tile will have on the faction map
-
+    map-color: AAAAAA # The color the tile will have on the faction map
+    
     # Protection rules - Define how chunks should get protected. They only apply for people not owning the chunk (Except always-protect) has been set to true
     protection:
       player-damage-animal: true # Prevent animals from being damaged in a claim by a player
@@ -236,7 +271,9 @@ zones:
       boss-damage-player: false # Prevent damage to players by bosses in a claim
       trampling: false # Prevent farmland from being trampled in a claim
       bucket-usage: false # Prevent using buckets in a claim
-
+      mob-spawn: false # Prevent mobs from spawning in a claim
+      mob-destruction: false # Prevent mobs from destroying blocks in a claim
+      creeper-explosion: false # Prevent creeper explosions in a claim
       general-pvp: false # Prevent general PvP in a claims. This means any sort of pvp
       in-faction-pvp: true # Prevent PvP between faction members in a claim
       minecart-damage: true # Prevent minecarts being destroyed in a claim
@@ -247,13 +284,19 @@ zones:
       block-interaction: true # Prevent interacting with blocks in a claim
       entity-interaction: true # Prevent interacting with entities in a claim
       entity-break-hanging: true # Prevent breaking hanging entities (like paintings or itemframes) in a claim
+      entity-place: true # Prevent placing entities in a claim
+      player-damage-armor-stand: true
+      armor-stand-manipulate: true
+      outside-explosions: true
+      all-explosions: false
+      projectiles: true
   safezone:
     announce-title: true # True will allow this zone to send titles to the player - Faction claims and no faction claims
     allow-claiming: false # Set to true will allow factions to claim their chunks in these regions
     # This is the language key of the title getting displayed when a claimed chunk is being left into an unclaimed one
     no-faction-title: base.zone.safezone
     always-protect: false # If set to true, all chunks, even unclaimed ones, will be affected from the protection rules defined below
-    map-color: "00FFFF" # The color the tile will have on the faction map
+    map-color: 00FFFF # The color the tile will have on the faction map
     # Protection rules - Define how chunks should get protected. They only apply for people not owning the chunk (Except always-protect) has been set to true
     protection:
       player-damage-animal: false # Prevent animals from being damaged in a claim by a player
@@ -266,7 +309,9 @@ zones:
       boss-damage-player: false # Prevent damage to players by bosses in a claim
       trampling: false # Prevent farmland from being trampled in a claim
       bucket-usage: false # Prevent using buckets in a claim
-
+      mob-spawn: true # Prevent mobs from spawning in a claim
+      mob-destruction: true # Prevent mobs from destroying blocks in a claim
+      creeper-explosion: true # Prevent creeper explosions in a claim
       general-pvp: false # Prevent general PvP in a claims. This means any sort of pvp
       in-faction-pvp: false # Prevent PvP between faction members in a claim
       minecart-damage: false # Prevent minecarts being destroyed in a claim
@@ -277,14 +322,20 @@ zones:
       block-interaction: false # Prevent interacting with blocks in a claim
       entity-interaction: false # Prevent interacting with entities in a claim
       entity-break-hanging: false # Prevent breaking hanging entities (like paintings or itemframes) in a claim
+      entity-place: true # Prevent placing entities in a claim
+      player-damage-armor-stand: true
+      armor-stand-manipulate: true
+      outside-explosions: true
+      all-explosions: true
+      projectiles: true
   warzone:
     announce-title: true # True will allow this zone to send titles to the player - Faction claims and no faction claims
     allow-claiming: false # Set to true will allow factions to claim their chunks in these regions
     # This is the language key of the title getting displayed when a claimed chunk is being left into an unclaimed one
     no-faction-title: base.zone.warzone
     always-protect: true # If set to true, all chunks, even unclaimed ones, will be affected from the protection rules defined below
-    map-color: "8B0000" # The color the tile will have on the faction map
-
+    map-color: 8B0000 # The color the tile will have on the faction map
+    
     # Protection rules - Define how chunks should get protected. They only apply for people not owning the chunk (Except always-protect) has been set to true
     protection:
       player-damage-animal: false # Prevent animals from being damaged in a claim by a player
@@ -297,7 +348,10 @@ zones:
       boss-damage-player: false # Prevent damage to players by bosses in a claim
       trampling: true # Prevent farmland from being trampled in a claim
       bucket-usage: true # Prevent using buckets in a claim
-
+      mob-spawn: false # Prevent mobs from spawning in a claim
+      mob-destruction: true # Prevent mobs from destroying blocks in a claim
+      creeper-explosion: true # Prevent creeper explosions in a claim
+      
       general-pvp: false # Prevent general PvP in a claims. This means any sort of pvp
       in-faction-pvp: true # Prevent PvP between faction members in a claim
       minecart-damage: true # Prevent minecarts being destroyed in a claim
@@ -308,13 +362,19 @@ zones:
       block-interaction: true # Prevent interacting with blocks in a claim
       entity-interaction: true # Prevent interacting with entities in a claim
       entity-break-hanging: true # Prevent breaking hanging entities (like paintings or itemframes) in a claim
+      entity-place: false # Prevent placing entities in a claim
+      player-damage-armor-stand: true
+      outside-explosions: true
+      all-explosions: true
+      armor-stand-manipulate: true
+      projectiles: true
   unmanaged:
     announce-title: false # True will allow this zone to send titles to the player - Faction claims and no faction claims
     allow-claiming: false # Set to true will allow factions to claim their chunks in these regions
     # This is the language key of the title getting displayed when a claimed chunk is being left into an unclaimed one
     no-faction-title: base.zone.unmanaged
     always-protect: false # If set to true, all chunks, even unclaimed ones, will be affected from the protection rules defined below
-    map-color: "AAAAAA" # The color the tile will have on the faction map
+    map-color: AAAAAA # The color the tile will have on the faction map
     # Protection rules - Define how chunks should get protected. They only apply for people not owning the chunk (Except always-protect) has been set to true
     protection:
       player-damage-animal: false # Prevent animals from being damaged in a claim by a player
@@ -327,7 +387,10 @@ zones:
       boss-damage-player: false # Prevent damage to players by bosses in a claim
       trampling: false # Prevent farmland from being trampled in a claim
       bucket-usage: false # Prevent using buckets in a claim
-
+      mob-spawn: false # Prevent mobs from spawning in a claim
+      mob-destruction: false # Prevent mobs from destroying blocks in a claim
+      creeper-explosion: false # Prevent creeper explosions in a claim
+      
       general-pvp: false # Prevent general PvP in a claims. This means any sort of pvp
       in-faction-pvp: false # Prevent PvP between faction members in a claim
       minecart-damage: false # Prevent minecarts being destroyed in a claim
@@ -338,37 +401,46 @@ zones:
       block-interaction: false # Prevent interacting with blocks in a claim
       entity-interaction: false # Prevent interacting with entities in a claim
       entity-break-hanging: false # Prevent breaking hanging entities (like paintings or itemframes) in a claim
+      entity-place: false # Prevent placing entities in a claim
+      player-damage-armor-stand: false
+      outside-explosions: false
+      all-explosions: false
+      armor-stand-manipulate: false
+      projectiles: false
 
 performance:
   thread-pool-size: 5 # Amount of thread that should be pooled waiting for operations
-
+  
   # This section is responsible for the particles that will be displayed only for decorative purposes, having little to no impact on the gameplay
   decorative-particles:
     hidden: false # If set to true, the particles will be hidden
-    tick-speed: 1 # The speed the particles will be updated. The higher the value, the better the resolution of the particle animations will be. 1 Is the fastes.
+    tick-speed: 1 # The speed of the particles will be updated. The higher the value, the better the resolution of the particle animations will be. 1 Is the fastes.
 
-# List the whitelisted and blacklisted worlds here.
-# If no whitelist is provided, all worlds will be considered as valid worlds. The blacklist will then be used to exclude worlds from this list
+# List the allowlisted and blocklisted worlds here.
+# If no allowlist is provided, all worlds will be considered as valid worlds.
+# The blocklist will then be used to exclude worlds from this list
 # Example 1: Allow all worlds except the nether and the end
-# blacklisted-worlds:
+# blocklisted-worlds:
 #   - world_nether
 #   - world_the_end
-# whitelisted-worlds: [ ]
+# allowlisted-worlds: [ ]
 # Example 2: Only allow the world "world"
 # blacklisted-worlds: [ ]
 # whitelisted-worlds:
 #   - world
 blacklisted-worlds:
-    - world_the_end
-whitelisted-worlds: [ ]
+- world_the_end
+whitelisted-worlds: []
 
 # The default values removed for a papi placeholder if no value has been provided. For example, when a player doesn't have a faction, the faction name will be replaced with this value
 default-placeholders:
-  name: "" # The default value for %faction_name%
-  owner: "" # The default value for %faction_owner%
-  rank: "Loner" # The default value for %faction_rank%
-  power: "0" # The default value for %faction_power%
-  maxPower: "0" # The default value for %faction_maxPower%
+  name: '' # The default value for %faction_name%
+  owner: '' # The default value for %faction_owner%
+  rank: Loner # The default value for %faction_rank%
+  power: '0' # The default value for %faction_power%
+  maxPower: '0' # The default value for %faction_maxPower%
+  max_power: '0'
 
-# This options decides if what kind of notification the players will receive when a certain event happens (Teleport, Territory change, etc)
-event-display-location: "TITLE" # Options are: TITLE, CHAT, ACTIONBAR
+# This option decides if what kind of notification the players will receive when a certain event happens (Teleport, Territory change, etc)
+event-display-location: TITLE # Options are: TITLE, CHAT, ACTIONBAR
+max-command-suggestions: 10

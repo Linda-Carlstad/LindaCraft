@@ -30,12 +30,15 @@
 
 # Note: Whether or not to strip colors from messages shown to console (to display issues with some panels).
 stripConsole: false
+
+# Note: Default reason placeholder if a custom reason was not defined (force restart command)
+defaultReason: Scheduled restart
 messages:
 
    # Note: Use {PREFIX} &f» in any message to add the below prefix!
   prefix: '&4Linda&8Craft &cAutoRestart'
   EVENT_INTERVAL_GLOBAL:
-   # Placeholders: {0} = interval
+   # Placeholders: {0} = interval, {1} = reason (if defined through the force command, otherwise it'll show N/A)
    # Scope: Global
     chatMessage:
       enabled: false
@@ -47,13 +50,14 @@ messages:
     actionbar:
       enabled: true
       content: '{PREFIX} &f» &fRestarting in &d{0}&f!'
+      duration: 0
     titles:
       enabled: false
       titleContent: '{PREFIX}'
       subtitleContent: '&fRestarting in &d{0}&f!'
          
   EVENT_INTERVAL_CONSOLE:
-   # Placeholders: {0} = interval
+   # Placeholders: {0} = interval, {1} = reason (if defined through the force command, otherwise it'll show N/A)
    # Scope: Limited -> Console only
     chatMessage:
       enabled: true
@@ -74,6 +78,7 @@ messages:
     actionbar:
       enabled: true
       content: '{PREFIX} &f» &fRestarting... join back soon!'
+      duration: 0
     titles:
       enabled: false
       titleContent: '{PREFIX}'
@@ -92,6 +97,7 @@ messages:
     actionbar:
       enabled: true
       content: '{PREFIX} &f» &fThe restart has been delayed by &d{0}&f!'
+      duration: 0
     titles:
       enabled: false
       titleContent: '{PREFIX}'
@@ -110,6 +116,7 @@ messages:
     actionbar:
       enabled: false
       content: '&c(Staff) {PREFIX} &f» &fThe restart has been delayed by &d{0}&f!'
+      duration: 0
     titles:
       enabled: false
       titleContent: '{PREFIX}'
@@ -118,7 +125,7 @@ messages:
    ############################### 
       
   COMMAND_USER_VIEWINTERVAL:
-   # Placeholders: {0} = interval, {1} = time since last restart
+   # Placeholders: {0} = interval, {1} = time since last restart, {2} = reason (if defined through the force command, otherwise it'll show N/A)
    # Scope: User
     chatMessage:
       enabled: true
@@ -131,6 +138,7 @@ messages:
     actionbar:
       enabled: false
       content: '{PREFIX} &f» &fRestarting in &d{0}&f!'
+      duration: 0
     titles:
       enabled: false
       titleContent: '{PREFIX}'
@@ -151,6 +159,7 @@ messages:
     actionbar:
       enabled: false
       content: '{PREFIX} &f» &fForced the restart. &fRestarting in &d{0}&f!'
+      duration: 0
     titles:
       enabled: false
       titleContent: '{PREFIX}'
@@ -169,6 +178,7 @@ messages:
     actionbar:
       enabled: false
       content: '{PREFIX} &f» &c{1} &fforced a restart. &fRestarting in &d{0}&f!'
+      duration: 0
     titles:
       enabled: false
       titleContent: '{PREFIX}'
@@ -187,6 +197,7 @@ messages:
     actionbar:
       enabled: false
       content: '{PREFIX} &f» &fForced the restart w/ reason. &fRestarting in &d{0}&f!'
+      duration: 0
     titles:
       enabled: false
       titleContent: '{PREFIX}'
@@ -207,6 +218,7 @@ messages:
       enabled: false
       content: '{PREFIX} &f» &c{1} &fforced a restart. &fRestarting in &d{0}&f! &7&oReason:&r
         {2}'
+      duration: 0
     titles:
       enabled: false
       titleContent: '{PREFIX}'
@@ -231,6 +243,7 @@ messages:
       enabled: false
       content: '{PREFIX} &f» &fCould not force restart because your interval argument
         is faulty!'
+      duration: 0
     titles:
       enabled: false
       titleContent: '{PREFIX}'
@@ -251,6 +264,7 @@ messages:
     actionbar:
       enabled: false
       content: '{PREFIX} &f» &fDelayed the restart. &fRestarting in &d{0}&f!'
+      duration: 0
     titles:
       enabled: false
       titleContent: '{PREFIX}'
@@ -269,6 +283,7 @@ messages:
     actionbar:
       enabled: true
       content: '{PREFIX} &f» &cAn admin delayed the restart. &fRestarting in &d{0}&f!'
+      duration: 0
     titles:
       enabled: false
       titleContent: '{PREFIX}'
@@ -293,6 +308,7 @@ messages:
       enabled: false
       content: '{PREFIX} &f» &fCould not delay restart because your interval argument
         is faulty!'
+      duration: 0
     titles:
       enabled: false
       titleContent: '{PREFIX}'
@@ -311,6 +327,7 @@ messages:
     actionbar:
       enabled: false
       content: '{PREFIX} &f» &fCould not delay restart because the restart is stopped!'
+      duration: 0
     titles:
       enabled: false
       titleContent: '{PREFIX}'
@@ -331,6 +348,7 @@ messages:
     actionbar:
       enabled: false
       content: '{PREFIX} &f» &fYou have cancelled the autorestart!'
+      duration: 0
     titles:
       enabled: false
       titleContent: '{PREFIX}'
@@ -349,6 +367,7 @@ messages:
     actionbar:
       enabled: false
       content: '{PREFIX} &f» &cAn admin cancelled the autorestart!'
+      duration: 0
     titles:
       enabled: false
       titleContent: '{PREFIX}'
@@ -367,6 +386,7 @@ messages:
     actionbar:
       enabled: false
       content: '{PREFIX} &f» &fCould not cancel autorestart, it was not running!'
+      duration: 0
     titles:
       enabled: false
       titleContent: '{PREFIX}'
@@ -388,6 +408,7 @@ messages:
     actionbar:
       enabled: false
       content: '{PREFIX} &f» &fRunning debug for: &d&l{0}'
+      duration: 0
     titles:
       enabled: false
       titleContent: '{PREFIX}'
@@ -410,6 +431,7 @@ messages:
     actionbar:
       enabled: false
       content: '{PREFIX} &f» &fCould not use debug command! Missing/Invalid argument!'
+      duration: 0
     titles:
       enabled: false
       titleContent: '{PREFIX}'
@@ -430,6 +452,7 @@ messages:
     actionbar:
       enabled: false
       content: '{PREFIX} &f» &fReloaded configuration files. &7(&f{0}ms&7)'
+      duration: 0
     titles:
       enabled: false
       titleContent: '{PREFIX}'
@@ -448,6 +471,7 @@ messages:
     actionbar:
       enabled: false
       content: '{PREFIX} &f» &fYou do not have permission to run this command!'
+      duration: 0
     titles:
       enabled: false
       titleContent: '{PREFIX}'

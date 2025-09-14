@@ -87,3 +87,5 @@ feature:
   disabled: '{prefix}Feature &b"%1$s"&7 has been disabled!'
   already_disabled: '{prefix}&cFeature "%1$s" is already disabled!'
   reloaded: '{prefix}Feature &b"%1$s"&7 has been reloaded!'
+new_version_available: '&fA newer version of &3DecentHolograms &fis available. Download
+  it from:'

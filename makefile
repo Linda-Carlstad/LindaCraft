@@ -1,6 +1,7 @@
 .PHONY: start
 start: ## starts the minecraft server
 	@echo "Starting Minecraft Server..."; \
+	docker pull marctv/minecraft-papermc-server:latest
 	docker compose up -d --build;
 
 .PHONY: stop

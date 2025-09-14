@@ -20,6 +20,7 @@
     ],
     "refreshSkinDuration": 0,
     "clickActions": [],
+    "bukkitAttributes": {},
     "npcEquip": {},
     "npcFunctions": {
       "look": true
@@ -46,6 +47,7 @@
     ],
     "refreshSkinDuration": 0,
     "clickActions": [],
+    "bukkitAttributes": {},
     "npcEquip": {},
     "npcFunctions": {
       "look": true
@@ -72,6 +74,7 @@
     ],
     "refreshSkinDuration": 0,
     "clickActions": [],
+    "bukkitAttributes": {},
     "npcEquip": {},
     "npcFunctions": {
       "look": true
@@ -98,6 +101,7 @@
     ],
     "refreshSkinDuration": 0,
     "clickActions": [],
+    "bukkitAttributes": {},
     "npcEquip": {},
     "npcFunctions": {
       "mirror": false,
@@ -126,6 +130,7 @@
     ],
     "refreshSkinDuration": 0,
     "clickActions": [],
+    "bukkitAttributes": {},
     "npcEquip": {},
     "npcFunctions": {
       "look": true
@@ -152,6 +157,7 @@
     ],
     "refreshSkinDuration": 0,
     "clickActions": [],
+    "bukkitAttributes": {},
     "npcEquip": {},
     "npcFunctions": {
       "look": true
@@ -178,6 +184,7 @@
     ],
     "refreshSkinDuration": 0,
     "clickActions": [],
+    "bukkitAttributes": {},
     "npcEquip": {},
     "npcFunctions": {
       "holo": true,
@@ -205,6 +212,7 @@
     ],
     "refreshSkinDuration": 0,
     "clickActions": [],
+    "bukkitAttributes": {},
     "npcEquip": {},
     "npcFunctions": {
       "look": true
@@ -231,6 +239,7 @@
     ],
     "refreshSkinDuration": 0,
     "clickActions": [],
+    "bukkitAttributes": {},
     "npcEquip": {},
     "npcFunctions": {
       "look": true,
@@ -258,6 +267,7 @@
     ],
     "refreshSkinDuration": 0,
     "clickActions": [],
+    "bukkitAttributes": {},
     "npcEquip": {},
     "npcFunctions": {
       "look": true
@@ -284,6 +294,7 @@
     ],
     "refreshSkinDuration": 0,
     "clickActions": [],
+    "bukkitAttributes": {},
     "npcEquip": {},
     "npcFunctions": {
       "holo": true
@@ -310,6 +321,7 @@
     ],
     "refreshSkinDuration": 0,
     "clickActions": [],
+    "bukkitAttributes": {},
     "npcEquip": {},
     "npcFunctions": {
       "look": true,
@@ -337,6 +349,7 @@
     ],
     "refreshSkinDuration": 0,
     "clickActions": [],
+    "bukkitAttributes": {},
     "npcEquip": {},
     "npcFunctions": {
       "holo": true
@@ -363,6 +376,7 @@
     ],
     "refreshSkinDuration": 0,
     "clickActions": [],
+    "bukkitAttributes": {},
     "npcEquip": {},
     "npcFunctions": {
       "holo": true
@@ -389,6 +403,7 @@
     ],
     "refreshSkinDuration": 0,
     "clickActions": [],
+    "bukkitAttributes": {},
     "npcEquip": {},
     "npcFunctions": {
       "holo": true
@@ -415,6 +430,7 @@
     ],
     "refreshSkinDuration": 0,
     "clickActions": [],
+    "bukkitAttributes": {},
     "npcEquip": {},
     "npcFunctions": {
       "holo": true
@@ -441,6 +457,7 @@
     ],
     "refreshSkinDuration": 0,
     "clickActions": [],
+    "bukkitAttributes": {},
     "npcEquip": {},
     "npcFunctions": {
       "look": true
@@ -467,6 +484,7 @@
     ],
     "refreshSkinDuration": 0,
     "clickActions": [],
+    "bukkitAttributes": {},
     "npcEquip": {},
     "npcFunctions": {
       "look": true
@@ -506,6 +524,7 @@
         "delay": 0
       }
     ],
+    "bukkitAttributes": {},
     "npcEquip": {},
     "npcFunctions": {
       "mirror": false,
@@ -533,6 +552,7 @@
     ],
     "refreshSkinDuration": 0,
     "clickActions": [],
+    "bukkitAttributes": {},
     "npcEquip": {},
     "npcFunctions": {
       "look": true
@@ -577,6 +597,7 @@
         "delay": 25
       }
     ],
+    "bukkitAttributes": {},
     "npcEquip": {},
     "npcFunctions": {
       "look": true
@@ -603,6 +624,7 @@
     ],
     "refreshSkinDuration": 0,
     "clickActions": [],
+    "bukkitAttributes": {},
     "npcEquip": {},
     "npcFunctions": {
       "look": true
@@ -629,6 +651,7 @@
     ],
     "refreshSkinDuration": 0,
     "clickActions": [],
+    "bukkitAttributes": {},
     "npcEquip": {},
     "npcFunctions": {
       "look": true
@@ -655,6 +678,7 @@
     ],
     "refreshSkinDuration": 0,
     "clickActions": [],
+    "bukkitAttributes": {},
     "npcEquip": {},
     "npcFunctions": {},
     "customizationMap": {}
@@ -679,6 +703,7 @@
     ],
     "refreshSkinDuration": 0,
     "clickActions": [],
+    "bukkitAttributes": {},
     "npcEquip": {},
     "npcFunctions": {
       "look": true
@@ -705,6 +730,7 @@
     ],
     "refreshSkinDuration": 0,
     "clickActions": [],
+    "bukkitAttributes": {},
     "npcEquip": {},
     "npcFunctions": {
       "holo": true,
@@ -732,6 +758,7 @@
     ],
     "refreshSkinDuration": 0,
     "clickActions": [],
+    "bukkitAttributes": {},
     "npcEquip": {},
     "npcFunctions": {
       "look": true
@@ -758,6 +785,7 @@
     ],
     "refreshSkinDuration": 0,
     "clickActions": [],
+    "bukkitAttributes": {},
     "npcEquip": {},
     "npcFunctions": {
       "look": true
