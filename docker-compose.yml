@@ -40,7 +40,7 @@ services:
       - certs:/var/certs/live
       - archive:/var/certs/archive
 
-  certbot:
+  certbot: # To update certificates, restart docker instance
     image: certbot/certbot:latest
     restart: no
     container_name: certbot
