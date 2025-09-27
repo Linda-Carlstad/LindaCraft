@@ -1,0 +1,28 @@
+global:
+  scrape_interval:     15s # By default, scrape targets every 15 seconds.
+  evaluation_interval: 15s # By default, evaluate rules every 15 seconds.
+
+scrape_configs:
+  - job_name: 'prometheus'
+
+    # Override the global default and scrape targets from this job every 15 seconds.
+    scrape_interval: 15s
+
+    static_configs:
+      - targets: ['localhost:9090'] # Prometheus self monitoring
+
+  - job_name: 'minecraft'
+
+    # Override the global default and scrape targets from this job every 15 seconds.
+    scrape_interval: 15s
+
+    static_configs:
+      - targets: ['LindaCraft-server:9940'] # Minecraft Exporter (im Container)
+
+  - job_name: 'node'
+
+    # NodeExporter für VM Metrics
+    scrape_interval: 15s
+
+    static_configs:
+      - targets: ['192.168.100.1:9100']
