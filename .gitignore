@@ -1,8 +1,8 @@
 .env
 
-data/*
-
 *.jar
+
+data/certbot/*
 
 server/*
 !server/server.properties
