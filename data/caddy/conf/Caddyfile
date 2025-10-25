@@ -1,7 +1,24 @@
-stats.minecraft.lindacarlstad.se {
-    reverse_proxy http://grafana:3000
+
+# Portainer dashboard
+dashboard.minecraft.lindacarlstad.se {
+    reverse_proxy localhost:9443 {
+	transport http {
+		tls_insecure_skip_verify
+	}
+    }
 }
 
+# Filebrowser
+filebrowser.lindacarlstad.alfredsson.dev {
+	reverse_proxy localhost:8080
+}
+
+# Grafana dashboard
+stats.minecraft.lindacarlstad.se {
+    reverse_proxy http://localhost:3000
+}
+
+# Minecraft
 minecraft.lindacarlstad.se {
-    reverse_proxy http://192.168.100.2:8123
+    reverse_proxy http://localhost:8123
 }

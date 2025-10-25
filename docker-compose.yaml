@@ -1,0 +1,38 @@
+services:
+  portainer:
+    container_name: portainer
+    image: portainer/portainer-ce:lts
+    restart: always
+      # environment:
+      # - VIRTUAL_HOST=dashboard.minecraft.lindacarlstad.se
+        #  - VIRTUAL_PORT=443
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - portainer_data:/data
+    ports:
+      - 9443:9443
+      # - 8000:8000  # Remove if you do not intend to use Edge Agents
+
+  reverse-proxy:
+    image: caddy:latest
+    container_name: caddy
+    restart: unless-stopped
+    network_mode: "host"
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./data/caddy/conf:/etc/caddy
+      - ./data/caddy/site:/srv
+      - caddy_data:/data
+      - caddy_config:/config
+
+volumes:
+  portainer_data:
+    name: portainer_data
+  caddy_data:
+  caddy_config:
+
+networks:
+  default:
+    name: portainer_network

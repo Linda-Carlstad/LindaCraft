@@ -1,0 +1,14 @@
+
+*.jar
+
+survival-1/*
+!survival-1/server.properties
+!survival-1/server-icon.png
+!survival-1/config/
+!survival-1/spigot.yml
+
+!survival-1/plugins/
+survival-1/plugins/*
+
+
+
