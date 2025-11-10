@@ -111,7 +111,7 @@ damage-display:
 
 healing-display:
   # Do you want this feature enabled? [true/false]
-  enabled: false
+  enabled: true
   # Do you want to display healing for players? [true/false]
   players: true
   # Do you want to display healing for mobs? [true/false]

@@ -17,7 +17,8 @@ scrape_configs:
     scrape_interval: 15s
 
     static_configs:
-      - targets: ['172.17.0.3:9940'] # Minecraft Exporter (im Container)
+      - targets: ['172.19.0.3:9940'] # Minecraft Exporter (im Container)
+
 
   - job_name: 'node'
 
@@ -25,4 +26,4 @@ scrape_configs:
     scrape_interval: 15s
 
     static_configs:
-      - targets: ['localhost:9100']
+      - targets: ['172.19.0.5:9100']

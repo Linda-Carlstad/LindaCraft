@@ -30,7 +30,7 @@ verbose: true
 
 # If no radius is specified in a rollback or restore, this value will be
 # used as the radius. Set to "0" to disable automatically adding a radius.
-default-radius: 10
+default-radius: 0
 
 # The maximum radius that can be used in a command. Set to "0" to disable.
 # To run a rollback or restore without a radius, you can use "r:#global".
